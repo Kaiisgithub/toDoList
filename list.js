@@ -14,8 +14,12 @@ function addToDoList()
 
     }while(proceed != false);
 
-    let countList = toDoLiST.length;
-    alert("Amount of added To Do's: " + countList);
+    if(addToDo != null)
+    {
+        let countList = toDoLiST.length;
+        return "Amount of added To Do's: " + countList;
+    }
+
 }
 
 function displayToDoList()
@@ -66,18 +70,19 @@ function deleteToDoList()
     {
         keyword = prompt(displayToDoList() + "\nSearch for task to be deleted: ");
         result = toDoLiST.filter(task => task.includes(keyword))
+
         keywordResult = "";
-        keyword.forEach((task, index) => {keywordResult += (index + 1) + ". " + task + "\n";});
-        numberToBeDeleted = prompt("Search result: \n" + keywordResult + "\n" 
-                            + "\nEnter number of the task to be deleted? : ");
+        result.forEach((task, index) => {keywordResult += (index + 1) + ". " + task + "\n";});
+
+        numberToBeDeleted = parseInt(prompt("Search result: \n" + keywordResult + "\n" 
+                            + "Enter number of the task to be deleted? : "));
     
-        const index = keywordResult.indexOf(numberToBeDeleted)
-        if (index > -1) {
-        keywordResult.splice(index, 1)
-        }        
+        if (numberToBeDeleted >= 1 && numberToBeDeleted <= toDoLiST.length) {
+            toDoLiST.splice(numberToBeDeleted - 1, 1);
+        }
         else
         {
-            confirm("Task not found !");
+            alert("Number not found, insert valid number !");
         }
         proceed = confirm("Continue deleting ?");
     }while(proceed != false);
@@ -89,3 +94,5 @@ addToDoList();
 displayToDoList();
 searchToDoList();
 deleteToDoList();
+
+alert("BYE !!");
