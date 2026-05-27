@@ -3,10 +3,25 @@
 <head>
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Quiz App</title>
     
 </head>
 <body>
-    <script src="quiz.js"></script>
+    <script src="quiz.js" defer></script>
+    
+    <h1>Quiz App</h1>
+    <p>Welcome to the Quiz App!</p>
+    
+    <p id="question"></p>
+    
+    <p>Please input your answer here: </p>
+    <input type="text" id="userInput" placeholder="Insert your answer here">
+    <p></p>
+    <button onclick="checkAnswer()">Submit!</button>
+
+    <p id="answer"></p>
+    <p id="score"></p>
+    
+
 </body>
 </html>

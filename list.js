@@ -74,7 +74,7 @@ function deleteToDoList()
         keywordResult = "";
         result.forEach((task, index) => {keywordResult += (index + 1) + ". " + task + "\n";});
 
-        numberToBeDeleted = parseInt(prompt("Search result: \n" + keywordResult + "\n" 
+        numberToBeDeleted = parseInt(prompt("Search r esult: \n" + keywordResult + "\n" 
                             + "Enter number of the task to be deleted? : "));
     
         if (numberToBeDeleted >= 1 && numberToBeDeleted <= toDoLiST.length) {

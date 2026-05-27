@@ -5,19 +5,34 @@ let qnArray = [
 ];
 
 let tracker =0;
-let score =0;
+let score =0; 
 
-do{
-    let userAnswer = prompt(qnArray[tracker].question);
+function showQuestion()
+{
+    let userQuestion = document.getElementById("question").innerHTML = qnArray[tracker].question;
+}
+
+function checkAnswer()
+{
+    let userInput = document.getElementById("userInput").value;
     
-    if(qnArray[tracker].answer.toLowerCase().includes(userAnswer.toLowerCase())){
-        alert("Correct!");
-        score++
+    if(qnArray[tracker].answer.toLowerCase().includes(userInput.toLowerCase())){
+        document.getElementById("answer").innerHTML = ("Correct!");
+        score++;
+        tracker++;
     } else {
-        alert("Incorrect!");
+        document.getElementById("answer").innerHTML = ("Incorrect!");
+        tracker++;
     }
-    tracker++;
+    
+    document.getElementById("userInput").value = "";
+    
+    if(tracker < qnArray.length)
+    {showQuestion();}
+    else
+    {document.getElementById("score").innerHTML = ("Final score: " + score);}
+    
 
-}while(tracker < qnArray.length)
+}
 
-alert("Final score: " + score);
+showQuestion();
